@@ -1,5 +1,5 @@
 # définition des cibles particulières
-.PHONY: all mrpropre build  clean 
+.PHONY: all mrproper build  clean 
 
 # désactivation des règles implicites
 .SUFFIXES:
@@ -12,7 +12,7 @@ EXEC = srcbuilder
 SRCDIR = $(CURDIR)/src/
 OBJDIR = $(CURDIR)/obj/
 BINDIR = $(CURDIR)/bin/
-OBJLIB = $(CURDIR)/lib/
+
 
 
 INCLUDES = \
@@ -24,7 +24,7 @@ EXECUTABLE = $(BINDIR)$(EXEC)
 # choix du compilateur :
 CXX = g++
 # options compilations :
-CPPFLAGS=  -Wall -fexpensive-optimizations -O2 -Os -pedantic-errors  -Wextra -std=c++17  -fexceptions -Wparentheses -ftree-coalesce-vars  -fstack-protector -Wabi-tag -D_GLIBCXX_USE_CXX11_ABI=0
+CPPFLAGS=  -Wall -fexpensive-optimizations -O2 -Os -pedantic-errors  -Wextra -std=c++17  -fexceptions -Wparentheses -ftree-coalesce-vars  -fstack-protector
 
 LDFLAGS=    
 INCLIB= 
@@ -42,8 +42,6 @@ INCLIB=
 
 # regle edition de liens  
 all: $(OBJ)
-	
-	
 	$(CXX)  $(OBJ) -o $(EXECUTABLE)   $(LDFLAGS) -s $(INCLIB)  
  
 # regle de compilation des sources objet
@@ -64,7 +62,7 @@ clean_b:
 	rm -rf  $(OBJDIR)*.o
 
 # pour effacer tous les objet et les executables :
-mrpropre: clean_a   
+mrproper: clean_a   
 	rm -rf $(EXECUTABLE)
 
 # efface objet(s) et affiche la taille de l'objet résultant
