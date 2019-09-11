@@ -22,23 +22,6 @@
 
 	voir exemple DDSREP.glade  to DDSREP.hpp
 
-	GtkBuilder *builder = gtk_builder_new_from_string (
-.......
-,
--1);
+	 $HOME/srcbuilder  -p $HOME/GTK/srcsql/src/  -f  DDSREP 
 
-
-	/// GTK CONTROLE
-
-	/* Initialisation de la librairie Gtk. */
-	gtk_init(&argc, &argv);
-
-	/* Ouverture du fichier Glade de la Fenêtre principale */
-	builder = gtk_builder_new();
-
-	/// include special file contenant le fichier glade mise au format gtk3  
-	#include "DDSREP.hpp"
-
-	/* Récupération du pointeur de la fenêtre principale */
-	WIN01 = GTK_WIDGET(gtk_builder_get_object (builder, "DDSREP"));
 
