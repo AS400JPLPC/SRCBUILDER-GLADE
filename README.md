@@ -20,7 +20,7 @@
 	out > myFile.glade to myFile.hpp
 
 
-	voir exemple DDSREP.glade  to DDSREP.hpp
+	voir exemple DDSREP.glade  to DDSREP_glade.hpp
 
 	 $HOME/srcbuilder  -p $HOME/GTK/srcsql/src/  -f  DDSREP 
 

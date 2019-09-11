@@ -117,7 +117,7 @@ std::string arg_PX = argv[1];
 	
 
 	fileGlade	=path + file +".glade";
-	fileSrc		=path + file +".hpp";
+	fileSrc		=path + file +"_glade.hpp";
 
 	ifstream fread(fileGlade.c_str(), ios::in);  // on ouvre le fichier en lecture
 
@@ -141,7 +141,7 @@ std::string arg_PX = argv[1];
 		fwrite<<"///  fichier : "<<fileGlade<<endl;
 		fwrite<<"///  " <<currentDateTime()<<endl;
 		fwrite<<""<<endl;
-		fwrite<<"///  pensez à declarer GtkBuilder *builder avant"<<endl;
+		fwrite<<"GtkBuilder *builder = gtk_builder_new();"<<endl;
 		fwrite<<""<<endl;
 		fwrite<<"builder = gtk_builder_new_from_string ("<<endl;
 			

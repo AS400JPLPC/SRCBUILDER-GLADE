@@ -1,5 +1,5 @@
 # définition des cibles particulières
-.PHONY: all mrproper build  clean 
+.PHONY: all mrproper build install clean 
 
 # désactivation des règles implicites
 .SUFFIXES:
@@ -20,13 +20,14 @@ INCLUDES = \
 
 OBJ = $(OBJDIR)$(EXEC).o  
 EXECUTABLE = $(BINDIR)$(EXEC)
+INSTALLDIR=$(HOME)/T_LIB/
  
 # choix du compilateur :
 CXX = g++
 # options compilations :
 CPPFLAGS=  -Wall -fexpensive-optimizations -O2 -Os -pedantic-errors  -Wextra -std=c++17  -fexceptions -Wparentheses -ftree-coalesce-vars  -fstack-protector
 
-LDFLAGS=    
+LDFLAGS=    -no-pie
 INCLIB= 
 
 
@@ -68,4 +69,6 @@ mrproper: clean_a
 # efface objet(s) et affiche la taille de l'objet résultant
 build: clean_b
 	 du -sh $(EXECUTABLE)
-
+install:
+	rm -rf $(INSTALLDIR)$(EXEC)
+	cp $(EXECUTABLE) $(INSTALLDIR)
